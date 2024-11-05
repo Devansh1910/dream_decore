@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FC8D3628DF1DE5EEAAB9745C /* Pods_Dream_Decore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 574E2D9464090329048ECF82 /* Pods_Dream_Decore.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		06DF652C2CD9FA1200BFB7C3 /* Dream Decore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream Decore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26247A716527EDBC30A92049 /* Pods-Dream Decore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Decore.debug.xcconfig"; path = "Target Support Files/Pods-Dream Decore/Pods-Dream Decore.debug.xcconfig"; sourceTree = "<group>"; };
+		39D03E43D8A459A382F47FD4 /* Pods-Dream Decore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Decore.release.xcconfig"; path = "Target Support Files/Pods-Dream Decore/Pods-Dream Decore.release.xcconfig"; sourceTree = "<group>"; };
+		574E2D9464090329048ECF82 /* Pods_Dream_Decore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dream_Decore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC8D3628DF1DE5EEAAB9745C /* Pods_Dream_Decore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +55,8 @@
 			children = (
 				06DF652E2CD9FA1200BFB7C3 /* Dream Decore */,
 				06DF652D2CD9FA1200BFB7C3 /* Products */,
+				34C705BF7CB20531529925A3 /* Pods */,
+				818729FC77678EA7570E8398 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +68,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		34C705BF7CB20531529925A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26247A716527EDBC30A92049 /* Pods-Dream Decore.debug.xcconfig */,
+				39D03E43D8A459A382F47FD4 /* Pods-Dream Decore.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		818729FC77678EA7570E8398 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				574E2D9464090329048ECF82 /* Pods_Dream_Decore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06DF653F2CD9FA1400BFB7C3 /* Build configuration list for PBXNativeTarget "Dream Decore" */;
 			buildPhases = (
+				8131F8F3657D431AB6A2F6AD /* [CP] Check Pods Manifest.lock */,
 				06DF65282CD9FA1200BFB7C3 /* Sources */,
 				06DF65292CD9FA1200BFB7C3 /* Frameworks */,
 				06DF652A2CD9FA1200BFB7C3 /* Resources */,
+				E3EB51D4B4E7E0380F181989 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				06DF652E2CD9FA1200BFB7C3 /* Dream Decore */,
 			);
 			name = "Dream Decore";
-			packageProductDependencies = (
-			);
 			productName = "Dream Decore";
 			productReference = 06DF652C2CD9FA1200BFB7C3 /* Dream Decore.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +154,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8131F8F3657D431AB6A2F6AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dream Decore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3EB51D4B4E7E0380F181989 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dream Decore/Pods-Dream Decore-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dream Decore/Pods-Dream Decore-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dream Decore/Pods-Dream Decore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		06DF65282CD9FA1200BFB7C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +209,7 @@
 /* Begin XCBuildConfiguration section */
 		06DF65402CD9FA1400BFB7C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26247A716527EDBC30A92049 /* Pods-Dream Decore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -148,9 +218,10 @@
 				DEVELOPMENT_TEAM = 9BUC4UPVAJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Dream Decore/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dream Decore";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -168,6 +239,7 @@
 		};
 		06DF65412CD9FA1400BFB7C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39D03E43D8A459A382F47FD4 /* Pods-Dream Decore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -176,9 +248,10 @@
 				DEVELOPMENT_TEAM = 9BUC4UPVAJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Dream Decore/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dream Decore";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -231,7 +304,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -294,7 +367,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
