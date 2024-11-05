@@ -3,24 +3,27 @@ import SwiftUI
 struct ShowroomView: View {
     var body: some View {
         ZStack {
-            // Background color
-            Image("background_image") // Replace with your background image name
+            // Background image
+            Image("background_image")
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 20) {
-                Spacer()
                 
                 // Header with toggle for "Showroom" and "Dream"
                 HStack {
-                    Text("Showroom")
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 10)
-                        .background(Color.green)
-                        .cornerRadius(10)
+                    HStack(spacing: 5) {
+                        Image(systemName: "house.fill")
+                            .foregroundColor(.white)
+                        Text("Showroom")
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(Color.green)
+                    .cornerRadius(10)
                     
                     Text("Dream")
                         .foregroundColor(.gray)
@@ -31,10 +34,10 @@ struct ShowroomView: View {
                 // Top Brands Section
                 VStack(alignment: .leading) {
                     Text("Top Brands")
-                        .font(.title2)
+                        .font(.title3)
                         .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding(.horizontal)
+                        .foregroundColor(Color(hex: "#DBDBDB"))
+                        .padding(.horizontal, 5)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 15) {
@@ -42,50 +45,60 @@ struct ShowroomView: View {
                                 Image("brand\(index)")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
-                                    .frame(width: 150, height: 150)
+                                    .frame(width: 100, height: 150)
                                     .cornerRadius(15)
                             }
                         }
                         .padding(.horizontal)
                     }
-                    
-                    Text("Whiteteak")
-                        .font(.subheadline)
-                        .foregroundColor(.white)
-                        .padding(.horizontal)
                 }
                 
-                // "Bring your Dreams to Reality" Banner
+                
+                // "Bring your Dreams to Reality" Banner with Image Background
                 ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.green)
-                        .frame(height: 100)
+                    // Background image with rounded corners
+                    Image("background_of_house") // Replace with the actual image name
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 100) // Adjusted height to fit content
+                        .cornerRadius(10)
+                        .clipped() // Ensures the image respects the corner radius
                     
-                    VStack {
-                        Text("Bring your Dreams to Reality")
-                            .font(.headline)
-                            .foregroundColor(.white)
+                    HStack {
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text("Bring your Dreams to Reality")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.black)
+                            
+                            Text("Get a classy description here.")
+                                .font(.caption)
+                                .fontWeight(.regular)
+                                .foregroundColor(.black.opacity(0.7))
+                            
+                            // "Explore" link at the bottom left
+                            Text("Explore >")
+                                .font(.subheadline)
+                                .fontWeight(.regular)
+                                .foregroundColor(Color(hex:"#3B3B3B"))
+                                .padding(.top, 5)
+                        }
+                        .padding(.leading, 5)
                         
-                        Text("Get a classy description here.")
-                            .font(.subheadline)
-                            .foregroundColor(.white.opacity(0.7))
-                        
-                        Text("Explore >")
-                            .font(.subheadline)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
+                        Spacer()
                     }
+                    .padding(.horizontal, 10)
                 }
-                .padding(.horizontal)
+
                 
                 // Explore Section
                 VStack(alignment: .leading) {
                     Text("Explore")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding(.horizontal)
-                    
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color(hex: "#DBDBDB"))
+                        .padding(.horizontal, 5)
+
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 15) {
                             ForEach(1..<5) { index in
@@ -103,8 +116,8 @@ struct ShowroomView: View {
                 Spacer()
             }
             .padding()
-            .background(Color(hex: "#101010").cornerRadius(45))
-            .padding(.top, 25)
+            .background(Color(hex: "#101010").opacity(0.9).cornerRadius(45))
+            .padding(.top, 40)
             .navigationBarTitle("Dream Decor", displayMode: .inline)
             .navigationBarItems(
                 trailing: HStack {
