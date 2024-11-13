@@ -13,7 +13,7 @@ struct SplashView: View {
             VStack {
                 Spacer()
                 
-                Image("splashlogo")
+                Image("logo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 150, height: 150)
@@ -28,7 +28,7 @@ struct SplashView: View {
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(red: 18 / 255, green: 21 / 255, blue: 29 / 255)) // Background color
+            .background(Color(hex:"#101010")) // Background color
             .opacity(isActive ? 0 : 1) // Hide splash screen instantly when transitioning
             .onAppear {
                 // Delay for 3 seconds before switching to the LoginView

@@ -4,6 +4,8 @@ platform :ios, '13.0'
 target 'Dream Decore' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  
+  pod 'lottie-ios'
 
   # Pods for Dream Decore
   pod 'Firebase/Core'                 # Basic Firebase setup (usually includes analytics)

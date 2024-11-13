@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		066CAD1B2CE4F999006A5C9A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 066CAD1A2CE4F999006A5C9A /* Lottie */; };
+		0685236E2CE20B7800791B3A /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0685236D2CE20B7800791B3A /* ARKit.framework */; };
+		068523702CE20B8400791B3A /* RealityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0685236F2CE20B8400791B3A /* RealityKit.framework */; };
+		068523772CE2177D00791B3A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068523762CE2177D00791B3A /* AdSupport.framework */; };
 		FC8D3628DF1DE5EEAAB9745C /* Pods_Dream_Decore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 574E2D9464090329048ECF82 /* Pods_Dream_Decore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0685236D2CE20B7800791B3A /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
+		0685236F2CE20B8400791B3A /* RealityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityKit.framework; path = System/Library/Frameworks/RealityKit.framework; sourceTree = SDKROOT; };
+		068523762CE2177D00791B3A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		06DF652C2CD9FA1200BFB7C3 /* Dream Decore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream Decore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26247A716527EDBC30A92049 /* Pods-Dream Decore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Decore.debug.xcconfig"; path = "Target Support Files/Pods-Dream Decore/Pods-Dream Decore.debug.xcconfig"; sourceTree = "<group>"; };
 		39D03E43D8A459A382F47FD4 /* Pods-Dream Decore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Decore.release.xcconfig"; path = "Target Support Files/Pods-Dream Decore/Pods-Dream Decore.release.xcconfig"; sourceTree = "<group>"; };
@@ -43,6 +50,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				066CAD1B2CE4F999006A5C9A /* Lottie in Frameworks */,
+				068523772CE2177D00791B3A /* AdSupport.framework in Frameworks */,
+				068523702CE20B8400791B3A /* RealityKit.framework in Frameworks */,
+				0685236E2CE20B7800791B3A /* ARKit.framework in Frameworks */,
 				FC8D3628DF1DE5EEAAB9745C /* Pods_Dream_Decore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +91,9 @@
 		818729FC77678EA7570E8398 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				068523762CE2177D00791B3A /* AdSupport.framework */,
+				0685236F2CE20B8400791B3A /* RealityKit.framework */,
+				0685236D2CE20B7800791B3A /* ARKit.framework */,
 				574E2D9464090329048ECF82 /* Pods_Dream_Decore.framework */,
 			);
 			name = Frameworks;
@@ -134,6 +148,9 @@
 			);
 			mainGroup = 06DF65232CD9FA1200BFB7C3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				066CAD192CE4F999006A5C9A /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 06DF652D2CD9FA1200BFB7C3 /* Products */;
 			projectDirPath = "";
@@ -408,6 +425,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		066CAD192CE4F999006A5C9A /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		066CAD1A2CE4F999006A5C9A /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 066CAD192CE4F999006A5C9A /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 06DF65242CD9FA1200BFB7C3 /* Project object */;
 }

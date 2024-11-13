@@ -1,131 +1,153 @@
 import SwiftUI
 
 struct ShowroomView: View {
+    @State private var currentPage = 0
+    @State private var selectedTab = 0 // Track the selected tab
+
     var body: some View {
-        ZStack {
-            // Background image
-            Image("background_image")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack(spacing: 20) {
+        NavigationView {
+            ZStack {
+                // Background image
+                Image("bk_new")
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
                 
-                // Header with toggle for "Showroom" and "Dream"
-                HStack {
-                    HStack(spacing: 5) {
-                        Image(systemName: "house.fill")
-                            .foregroundColor(.white)
-                        Text("Showroom")
-                            .foregroundColor(.white)
-                            .fontWeight(.bold)
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
-                    .background(Color.green)
-                    .cornerRadius(10)
-                    
-                    Text("Dream")
-                        .foregroundColor(.gray)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 10)
-                }
-                
-                // Top Brands Section
-                VStack(alignment: .leading) {
-                    Text("Top Brands")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color(hex: "#DBDBDB"))
-                        .padding(.horizontal, 5)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 15) {
-                            ForEach(1..<4) { index in
-                                Image("brand\(index)")
+                ScrollView { // Make the entire screen scrollable
+                    VStack(spacing: 20) {
+                        
+                        HStack {
+                            HStack(spacing: 5) {
+                                Image("showroomcircle") // Use your own custom icon here
                                     .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 100, height: 150)
-                                    .cornerRadius(15)
+                                    .frame(width: 12, height: 12) // Adjust the icon size as needed
+                                Text("Showroom")
+                                    .foregroundColor(.white)
+                                    .fontWeight(.bold)
                             }
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 10)
+                            .background(Color.clear) // Set background to clear
+                            .cornerRadius(10)
+                            
+                            Text("Dream")
+                                .foregroundColor(.gray)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 10)
                         }
-                        .padding(.horizontal)
-                    }
-                }
-                
-                
-                // "Bring your Dreams to Reality" Banner with Image Background
-                ZStack {
-                    // Background image with rounded corners
-                    Image("background_of_house") // Replace with the actual image name
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 100) // Adjusted height to fit content
-                        .cornerRadius(10)
-                        .clipped() // Ensures the image respects the corner radius
-                    
-                    HStack {
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text("Bring your Dreams to Reality")
-                                .font(.subheadline)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Top Brands")
+                                .font(.title3)
                                 .fontWeight(.semibold)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color(hex: "#DBDBDB"))
+                                .padding(.horizontal, 5)
                             
-                            Text("Get a classy description here.")
-                                .font(.caption)
-                                .fontWeight(.regular)
-                                .foregroundColor(.black.opacity(0.7))
-                            
-                            // "Explore" link at the bottom left
-                            Text("Explore >")
-                                .font(.subheadline)
-                                .fontWeight(.regular)
-                                .foregroundColor(Color(hex:"#3B3B3B"))
-                                .padding(.top, 5)
+                            CustomCardView()
+                                .frame(height: 250) // Adjust the height as needed
+                                .padding(.horizontal)
+                                .padding(.top, 20) // Added top padding of 20
                         }
-                        .padding(.leading, 5)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Explore")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color(hex: "#DBDBDB"))
+                                .padding(.horizontal, 10)
+                            
+                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) { // Added spacing between rows
+                                ForEach(1...4, id: \.self) { index in
+                                    NavigationLink(
+                                        destination: ItemInsiderView(
+                                            imageName: "image\(index)",
+                                            title: "Traditional Chair \(index)",
+                                            brand: "Whiteteak",
+                                            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                                            price: "£200",
+                                            originalPrice: "£499",
+                                            discount: "75% Off"
+                                        )
+                                    ) {
+                                        ItemUIView(imageName: "image\(index)", title: "Traditional Chair \(index)", brand: "Whiteteak", price: "$2,000")
+                                    }
+                                    .buttonStyle(PlainButtonStyle()) // Disable button highlight
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
                         
                         Spacer()
                     }
-                    .padding(.horizontal, 10)
+                    .padding()
+                    .background(Color(hex: "#101010").cornerRadius(45))
+                    .padding(.top, 70)
                 }
-
+                .navigationBarTitle("Dream Decor", displayMode: .inline)
+                .navigationBarItems(
+                    trailing: HStack {
+                        Image(systemName: "magnifyingglass")
+                        Image(systemName: "circle.fill")
+                    }
+                    .foregroundColor(.white)
+                )
                 
-                // Explore Section
-                VStack(alignment: .leading) {
-                    Text("Explore")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color(hex: "#DBDBDB"))
-                        .padding(.horizontal, 5)
-
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 15) {
-                            ForEach(1..<5) { index in
-                                Image("explore\(index)")
+                // Bottom Navigation Bar with Middle Floating Button
+                VStack {
+                    Spacer()
+                    
+                    ZStack {
+                        // Bottom Navigation Bar
+                        HStack {
+                            Spacer()
+                            Button(action: { selectedTab = 0 }) {
+                                VStack {
+                                    Image("icon1") // Use your custom icon
+                                        .resizable()
+                                        .frame(width: 30, height: 30) // Adjust size as needed
+                                    Text("Home")
+                                        .font(.system(size: 12, weight: .bold))
+                                }
+                                .foregroundColor(selectedTab == 0 ? .green : .gray)
+                            }
+                            Spacer()
+                            Spacer() // Extra space for the middle icon
+                            Spacer()
+                            Button(action: { selectedTab = 2 }) {
+                                VStack {
+                                    Image("icon3") // Use your custom icon
+                                        .resizable()
+                                        .frame(width: 30, height: 30) // Adjust size as needed
+                                    Text("Profile")
+                                        .font(.system(size: 12, weight: .bold))
+                                }
+                                .foregroundColor(selectedTab == 2 ? .green : .gray)
+                            }
+                            Spacer()
+                        }
+                        .padding()
+                        .background(Color.black.opacity(0.8))
+                        .cornerRadius(35) // Increase corner radius to shape it like the image
+                        .padding(.horizontal)
+                        
+                        // Middle Floating Button (above the bottom bar)
+                        Button(action: { selectedTab = 1 }) {
+                            VStack {
+                                Image("iconmiddle") // Use your custom icon
                                     .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 150, height: 150)
-                                    .cornerRadius(15)
+                                    .frame(width: 75, height: 75) // Slightly smaller than before for subtlety
+                                    .background(Circle().fill(Color.black.opacity(0.8)))
+                                    .clipShape(Circle())
+                                Text("Favorites")
+                                    .font(.system(size: 14, weight: .bold)) // Adjust font size for emphasis
+                                    .foregroundColor(selectedTab == 1 ? .green : .gray)
                             }
                         }
-                        .padding(.horizontal)
+                        .offset(y: -25) // Adjust to hover just above the bar
                     }
+                    .padding(.bottom, 20) // Additional padding at the bottom
                 }
-                
-                Spacer()
             }
-            .padding()
-            .background(Color(hex: "#101010").opacity(0.9).cornerRadius(45))
-            .padding(.top, 40)
-            .navigationBarTitle("Dream Decor", displayMode: .inline)
-            .navigationBarItems(
-                trailing: HStack {
-                    Image(systemName: "magnifyingglass")
-                    Image(systemName: "circle.fill")
-                }
-                .foregroundColor(.white)
-            )
         }
     }
 }
